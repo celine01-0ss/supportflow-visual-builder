@@ -1,0 +1,9 @@
+[
+  { "id": "1", "question": "How can we help you?", "options": [{ "label": "Billing", "nextNodeId": "2" }, { "label": "Tech Support", "nextNodeId": "3" }], "position": { "x": 100, "y": 200 } },
+  { "id": "2", "question": "What is your billing issue?", "options": [{ "label": "View Invoices", "nextNodeId": "4" }, { "label": "Payment Failed", "nextNodeId": "5" }], "position": { "x": 450, "y": 80 } },
+  { "id": "3", "question": "What is your tech issue?", "options": [{ "label": "Report a Bug", "nextNodeId": "6" }, { "label": "Account Access", "nextNodeId": "7" }], "position": { "x": 450, "y": 350 } },
+  { "id": "4", "question": "Your invoices are available in the billing portal.", "options": [], "position": { "x": 800, "y": 20 } },
+  { "id": "5", "question": "Please retry your payment or contact your bank.", "options": [], "position": { "x": 800, "y": 150 } },
+  { "id": "6", "question": "Bug reported! Our team will follow up within 24 hours.", "options": [], "position": { "x": 800, "y": 290 } },
+  { "id": "7", "question": "Please reset your password or contact support.", "options": [], "position": { "x": 800, "y": 420 } }
+]
