@@ -1,16 +1,70 @@
-# React + Vite
+# SupportFlow Visual Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A visual decision tree editor for building and testing customer support chatbot flows.
 
-Currently, two official plugins are available:
+## Live Demo
+[https://supportflow-visual-builder.vercel.app](https://supportflow-visual-builder.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Overview
+SupportFlow Visual Builder allows support teams to design, edit, and test automated chatbot conversation flows through an intuitive drag-and-drop flowchart interface — no spreadsheets required.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Visual Flow Editor
+- Renders conversation nodes as interactive cards on a canvas
+- Nodes are positioned using absolute x/y coordinates from JSON data
+- SVG bezier curves connect parent nodes to child nodes visually
 
-## Expanding the ESLint configuration
+### Node Editing
+- Click any node to open an Edit Panel
+- Edit question text in real-time
+- Changes reflect immediately on the canvas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Preview Mode
+- Toggle between Editor and Preview (chat interface)
+- Simulates the real customer chatbot experience
+- Traverses the decision graph based on user selections
+- Shows a Restart button when conversation ends
+
+### Undo/Redo (Wildcard Feature)
+- Full undo/redo history for all node edits
+- Implemented using two stacks (undoStack and redoStack)
+- Prevents accidental loss of work
+
+## Why Undo/Redo?
+Support teams frequently update bot scripts. Without undo, a single wrong edit means manually retyping the original text. Undo/Redo makes the editor feel professional and safe to use, directly reducing errors and frustration for non-technical managers.
+
+## Tech Stack
+- React (Vite)
+- SVG for connection lines
+- CSS for styling (no UI libraries)
+
+## Constraints Met
+- No react-flow, jsPlumb, or mermaid.js used
+- No Bootstrap, Material UI, or Chakra UI used
+- Custom SVG bezier curve connection logic built from scratch
+- Node positioning uses DOM coordinates and absolute CSS positioning
+
+## Getting Started
+
+### Installation
+npm install
+
+### Run Development Server
+npm run dev
+
+### Build for Production
+npm run build
+
+## Project Structure
+src/
+├── components/
+│   ├── NodeCard.jsx
+│   ├── Canvas.jsx
+│   ├── Connector.jsx
+│   ├── EditPanel.jsx
+│   └── ChatPreview.jsx
+├── data/
+│   └── nodes.json
+├── App.jsx
+└── main.jsx
